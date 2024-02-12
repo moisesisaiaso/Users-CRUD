@@ -1,0 +1,119 @@
+/* .form__group{
+    position: fixed;
+} */
+
+.form {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 2rem;
+    border: 1px solid rgb(231, 229, 229);
+    flex-wrap: wrap;
+    max-width: 40rem;
+    height: 30rem;
+    padding: 1.2rem;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 5;
+    transform: scale(0);
+
+}
+@media screen and (max-width: 678px){
+    .form { 
+        left: 20px;
+        right: 20px;
+     }
+}
+
+
+@media screen and (max-width: 599px){
+    .form { 
+       min-height: 40rem;
+     }
+}
+
+
+
+.form__closeIcon{
+    position: absolute;
+    width: 1rem;
+    top: 1rem;
+    right: 1.2rem;
+    cursor: pointer;
+   
+}
+
+.form__title{
+    margin-top: 1.5rem;
+}
+
+.form__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    all: unset;
+    width: 100%;
+    font-size: 1.3rem;
+    color: #ADADAD;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-basis: 12rem;
+    flex-grow: 1;
+    padding: 5px 10px 10px 10px;
+    background-color: white;
+}
+
+
+
+
+.group__birthday {
+    flex-basis: 100%;
+    padding-right: 10px;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.1rem;
+   
+    
+}
+
+input[type="submit"] {
+    text-align: center;
+    padding: 0.3rem 0rem 0.5rem 0rem;
+    width: 100%;
+    background-color: #555a88;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0.1rem 0 0.4rem 0;
+    height: 1.8rem;
+}
+
+input[type="submit"]:hover {
+    background-color: #6a6fa1;
+}
+
+input[type="submit"]:active {
+    background-color: #555a88;
+}

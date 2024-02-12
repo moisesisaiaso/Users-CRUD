@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: ConcertOne;
+    src: url(../fonts/ConcertOne-Regular.ttf) format("truetype");
+}
+@font-face {
+    font-family: RussoOne;
+    src: url(../fonts/RussoOne-Regular.ttf) format("truetype");
+}
+
+:root {
+    font-size: 17px;
+    /*  background-color: Canvas;
+    color: CanvasText;
+    color-scheme: light;
+    color-scheme: dark; */
+}
+
+body {
+    position: relative;
+    font-family: ConcertOne;
+    letter-spacing: 1px;
+    color: rgb(43, 42, 42);
+    padding: 2.8rem 2.8rem 2rem 2.8rem;
+    background-color: #F7F7F7;
+}
+
+.users__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.users__header h1 {
+    font-size: 2.7rem;
+}
+
+.header__btn{
+    font-size: 1.3rem;
+    background-color: white;
+    border: 2px solid white;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 150ms;
+}
+
+.header__btn:active{
+    background-color: transparent;
+}
+
+
+
+.users__main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.users__footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    color: gray;
+}
