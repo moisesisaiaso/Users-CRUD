@@ -1,40 +1,39 @@
 import formStyles from "../assets/styles/formStyles.module.css";
 import closeIcon from "../assets/img/close.png";
-import { useEffect} from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-export const FormUser = ({ createUser, updateUser, edit, setEdit, users}) => {
+export const FormUser = ({ createUser, updateUser, edit, setEdit, users, isClose, setIsClose }) => {
+  
+
     const { handleSubmit, register, reset } = useForm();
 
-    useEffect( ()=> {
-        if(edit){
-            const arrayUser =  users.filter((user)=> user.id === edit);
+    useEffect(() => {
+        if (edit) {
+            const arrayUser = users.filter((user) => user.id === edit);
             const getUser = arrayUser[0];
-            const {first_name, last_name, email, password,birthday} = getUser;
+            const { first_name, last_name, email, password, birthday } = getUser;
             reset({
                 first_name,
                 last_name,
                 email,
                 password,
-                birthday
+                birthday,
             });
-    
+
             console.log(getUser, "userEdit");
         }
-    },[edit])
+    }, [edit]);
 
     const submit = (data) => {
-        
-        if(edit){
+        if (edit) {
             updateUser("/users/", edit, data);
             setEdit(undefined);
-        }else{
-            
+        } else {
             createUser("/users/", data);
             console.log(data);
-    
         }
-        
+
         reset({
             first_name: "",
             last_name: "",
@@ -42,12 +41,18 @@ export const FormUser = ({ createUser, updateUser, edit, setEdit, users}) => {
             password: "",
             birthday: "",
         });
+
+        setIsClose(true);
     };
 
+    const handleClose = ()=>{
+       setIsClose(true);
+    }
+
     return (
-        <section className={formStyles.form__group}>
+        <section className={formStyles.form__container+" "+`${!isClose && formStyles.form__open}`}>
             <form onSubmit={handleSubmit(submit)} className={formStyles.form}>
-                <img src={closeIcon} alt="closeIcon" className={formStyles.form__closeIcon}  />
+                <img src={closeIcon} alt="closeIcon" className={formStyles.form__closeIcon} onClick={handleClose}/>
                 <h2 className={formStyles.form__title}>Nuevo Usuario</h2>
                 {/*  <fieldset>
                     <legend htmlFor="image_url">Foto</legend>
@@ -75,7 +80,10 @@ export const FormUser = ({ createUser, updateUser, edit, setEdit, users}) => {
                         <input type="date" id="birthday" {...register("birthday")} required />
                     </fieldset>
                 </section>
-                <input type="submit" value={edit?"Actualizar Usuario" : "Agregar nuevo usuario"} />
+                <input
+                    type="submit"
+                    value={edit ? "Actualizar Usuario" : "Agregar nuevo usuario"}
+                />
             </form>
         </section>
     );

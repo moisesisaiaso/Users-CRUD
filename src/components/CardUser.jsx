@@ -4,7 +4,7 @@ import birthdayIcon from "../assets/img/birthday.png";
 import deleteIcon from "../assets/img/delete-us.png";
 import editIcon from "../assets/img/edit.png";
 
-export const CardUser = ({ user, deleteUser, setEdit }) => {
+export const CardUser = ({ user, deleteUser, setEdit, setIsClose }) => {
     const { id, first_name, last_name, email, birthday } = user;
 
     const handleDelete = ()=>{
@@ -13,6 +13,7 @@ export const CardUser = ({ user, deleteUser, setEdit }) => {
 
     const handleGetUser = ()=>{
          setEdit(id);
+         setIsClose(false);
     }
 
     return (
